@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#admin {
+  color: red
+}
+
+#super-admin {
+  color: darkgreen
+}
+
+#user {
+  color: darkorchid
+}

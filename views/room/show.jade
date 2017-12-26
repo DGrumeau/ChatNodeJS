@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  h1= room.name
+
+  .message-list
+    if room.messages
+      each message in room.messages
+        ul
+          li(id= message._id)= message.user.username + ' : '
+            if (message.content)
+            span.update!= md(message.content)
+            br
+            if message.user.username == user.username || ['admin', 'super-admin'].includes(user.role) 
+              a(href= '/message/' + message._id + '/delete')= "delete"
+              br
+            if ['admin', 'super-admin'].includes(user.role)
+              a(href= '/user/' + message.user._id + '/kick/' + room._id)= "kick"
+              br
+            a(href= '/emotion/send/' + message._id)= "emotion"
+
+  .panel.panel-default
+        .panel-heading
+            form.form-horizontal(action="/message/send", method="POST")
+                .form-group
+                    .label.col-md-2(for="message")
+                    .input-group
+                        input#message(name="content", type="text", placeholder="What are you up to today?")
+                        input(type="hidden", name="room", value="#{room.name}")
+                        input.btn.btn-default(type="submit", value="Go !")
