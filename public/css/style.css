@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#admin {
+  color: red
+}
+
+#super-admin {
+  color: darkgreen
+}
+
+#user {
+  color: darkorchid
+}
+
+.icons{
+  right: 5px;
+  top: 12px;
+  height: 30px;
+  position: absolute;
+}
+
+.navbarmsn{
+  background-color: #0060FB;
+  height: 55px;
+  color: white;
+  font-family: arial;
+}
+
+.navbarmsn a{
+  color: white;
+  padding: 10px;
+}
+
+.card{
+  padding: 20px;
+  text-align: center
+}
+
+table, th, td {
+    border: 1px solid rgba(0,0,0,.125);
+
+   padding: 5px;
+   width: 80%;
+}
+
+
+ul, li{
+  list-style:none;
+}
+
+.titre{
+  font-weight: bold;
+}
+
+.tdnom{
+  width: 200px;
+}
+
+.tdmessage{
+  min-width: 300px;
+}
+
+.tdoptions{
+  min-width: 50px;
+}
+
+.container{
+  left:0;
+  right:0;
+  width: 600px;
+  text-align: center;
+}
+
+footer{
+  bottom: 10px;
+  text-align:center;
+  width: 100%;
+  padding-top: 20px;
+}
+
+#message,#channel{
+  width: 100%;
+}
+
+.tdsendmessage{
+  
+}

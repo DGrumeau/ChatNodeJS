@@ -1,11 +1,8 @@
-// Importing needed modules
+// importation des modules, outils nécessaires 
 import passportFacebook from 'passport-facebook'
-
-// Importing needed files
 import User from '../../models/user'
 import config from '../../config/auth'
 
-// Setting needed constants
 const FacebookStrategy = passportFacebook.Strategy
 
 const facebook = (passport) => {

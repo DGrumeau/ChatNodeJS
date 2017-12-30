@@ -1,11 +1,10 @@
-// Importing needed modules
+// Importation des modules
+
 import passportTwitter from 'passport-twitter'
 
-// Importing needed files
 import User from '../../models/user'
 import config from '../../config/auth'
 
-// Setting needed constants
 const TwitterStrategy = passportTwitter.Strategy
 
 const twitter = (passport) => {

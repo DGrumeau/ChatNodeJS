@@ -11,7 +11,7 @@ import isAuth from '../tools/isauthentified'
 import isKicked from '../tools/iskicked'
 import isBanned from '../tools/isbanned'
 
-const Room = mongoose.model('Room')
+const Channel = mongoose.model('Channel')
 const Message = mongoose.model('Message')
 const User = mongoose.model('User')
 
@@ -23,18 +23,18 @@ router.get('/:slug', isAuth, isBanned, validate(
       slug: Joi.string().regex(/[a-zA-Z0-9]{3,30}/).required(),
     }
   }), (req, res) => {
-    Room.findOneAndUpdate({ slug: req.params.slug }, { $addToSet: { users: { _id: req.session.passport.user._id } }}, { new: true }).populate({ path: 'messages', populate: [{ path: 'user' }, { path: 'emotion' }]}).populate({ path: 'users' }).exec(function(err, room) {
+    Channel.findOneAndUpdate({ slug: req.params.slug }, { $addToSet: { users: { _id: req.session.passport.user._id } }}, { new: true }).populate({ path: 'messages', populate: [{ path: 'user' }, { path: 'emotion' }]}).populate({ path: 'users' }).exec(function(err, channel) {
       if (err) {
         console.log(err)
       } else {
-        res.render('room/show', { room, user: req.session.passport.user, md: markdown });
+        res.render('channel/show', { channel, user: req.session.passport.user, md: markdown });
       }
     });
 });
 
 router.post('/create', isAuth, isBanned, (req, res) => {
   console.log(req.session.passport.user)
-  const room = new Room({
+  const channel = new Channel({
     name: req.body.name,
     slug: slug(req.body.name),
     numberOfUsers: 1,
@@ -46,7 +46,7 @@ router.post('/create', isAuth, isBanned, (req, res) => {
     users: [{ id: req.session.passport.user._id }]
   })
 
-  room.save((err, item) => {
+  channel.save((err, item) => {
     if (err) console.log(err)
     res.redirect('back')
   })

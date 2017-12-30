@@ -3,19 +3,19 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-const Room = mongoose.model('Room')
+const Channel = mongoose.model('Channel')
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
   if (req.session.passport != null && req.session.passport.user != null) {
-    Room.find().populate('creator').exec((err, rooms) => {
-      rooms.forEach(room => {
-        const numberOfUsers = room.users.length
-        room.numberOfUsers = numberOfUsers
+    Channel.find().populate('creator').exec((err, channels) => {
+      channels.forEach(channel => {
+        const numberOfUsers = channel.users.length
+        channel.numberOfUsers = numberOfUsers
       });
 
-      res.render('room/list', { rooms, user: req.session.passport.user })
+      res.render('channel/list', { channels, user: req.session.passport.user })
     })
   } else {
     res.render('index/index')

@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+
+    .container
+      
+
+
+                table
+                  tr
+                    td.titre='Liste des channels'
+                  each channel in channels
+                    tr
+                      td
+                        a(href='/channel/' + channel.slug)= channel.name
+                        span= ' ---  ' + channel.numberOfUsers + ' membre(s)   -   '
+                        if channel.creator.username == user.username || ['admin', 'super-admin'].includes(user.role) 
+                          a(href= '/channel/' + channel._id + '/delete')
+                            i(class="fas fa-trash-alt")
+                        br
+
+                  tr
+                    td
+                      .panel.panel-default
+                              .panel-heading
+                                  form.form-horizontal(action="/channel/create", method="POST")
+                                      .form-group
+                                          .label.col-md-2(for="channel")
+                                          .input-group
+                                              input#channel(name="name", type="text", placeholder="Saisir nom")
+                                              input.btn.btn-default(type="submit", value="CREER")                                                  
+                        

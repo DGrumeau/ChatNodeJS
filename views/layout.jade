@@ -1,20 +1,32 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/static/stylesheet/style.css')
+    title= 'MSN Messenger'
+    link(rel='stylesheet', href='/static/css/style.css')
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css")
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css")
   body
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+    //nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+    .navbarmsn
+
+      img.className#IdName(src="/static/msnmessenger.png" alt="Logo" title="Wizz !")
       a.navbar-brand(href='/') MSN Messenger
-      br
-      if user
-        a(id= user.role, href="/auth/logout")= user.username
-    .container-fluid(style="padding-top: 60px;")
+
+      a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+        img.icons(src='/static/icons.png' alt="WindowsButtons" title="Retourner à Windows XP" a="https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    .container-fluid(style="padding-top: 50px;")
       block content
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
     script(defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js")
     script(src="/static/javascript/socket.js")
+
+  footer
+    p
+      if user
+        
+        |Bienvenue 
+        =user.username
+        |. 
+        a(id= user.role, href="/auth/logout", title="Se déconnecter")= "Se déconnecter"

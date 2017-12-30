@@ -1,4 +1,5 @@
-// Importing needed modules
+// Importation des modules
+
 import passportLocal from 'passport-local'
 import bCrypt from 'bcrypt-nodejs'
 import mongoose from 'mongoose'

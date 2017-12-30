@@ -1,11 +1,9 @@
-// Importing needed modules
-import passportGoogle from 'passport-google'
+// importation des modules, outils nécessaires 
 
-// Importing needed files
+import passportGoogle from 'passport-google'
 import User from '../../models/user'
 import config from '../../config/auth'
 
-// Setting needed constants
 const GoogleStrategy = passportGoogle.Strategy
 
 const google = (passport) => {

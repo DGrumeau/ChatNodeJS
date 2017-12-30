@@ -1,12 +1,9 @@
-// Importing needed modules
+// importation des modules, outils et modèles nécessaires 
+
 import passportLocal from 'passport-local'
 import bCrypt from 'bcrypt-nodejs'
 import mongoose from 'mongoose'
-
-// Importing needed models
 const User = mongoose.model('User')
-
-// Setting needed constants
 const LocalStrategy = passportLocal.Strategy
 
 const isValidPassword = (user, password) => bCrypt.compareSync(password, user.password)

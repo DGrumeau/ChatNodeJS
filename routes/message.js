@@ -4,10 +4,10 @@ import express from 'express'
 import mongoose from 'mongoose'
 
 import isAuth from '../tools/isauthentified'
-import whichPlatform from '../tools/videos'
+import whichPlatform from '../tools/youtube'
 
 const Message = mongoose.model('Message')
-const Room = mongoose.model('Room')
+const Channel = mongoose.model('Channel')
 
 const router = express.Router()
 
@@ -24,8 +24,8 @@ router.post('/send', isAuth, (req, res) => {
   message.content = embedCode.length > 10 ? embedCode : message.content
 
   message.save((err, item) => {
-    Room.update(
-      { "name": req.body.room }, 
+    Channel.update(
+      { "name": req.body.channel }, 
       { "$push": { "messages":  message._id } },
       function (err, raw) {
         if (err) console.log(err);

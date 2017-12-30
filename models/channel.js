@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 
 // Création des salons 
 
-const RoomSchema = new Schema({
+const ChannelSchema = new Schema({
+  
     name: String,
     slug: String,
     dateCreation: Date,
@@ -33,6 +34,6 @@ const RoomSchema = new Schema({
     ]
 });
 
-const Room = mongoose.model('Room', RoomSchema)
+const Channel = mongoose.model('Channel', ChannelSchema)
 
-module.exports = Room
+module.exports = Channel

@@ -1,6 +1,6 @@
 var socket = io('ws://localhost:3000', {transports: ['websocket']});
 var md = require('marked');
-var whichPlatform = require('../../tools/videos');
+var whichPlatform = require('../../tools/youtube');
 
 socket.on('new_message', function(data){
   var temp = document.getElementById('message-list').innerHTML;
@@ -8,23 +8,7 @@ socket.on('new_message', function(data){
   whichPlatform.url = data.content;
   var videoPlatform = whichPlatform();
 
-  switch (videoPlatform) {
-    case 'youtube':
-      break;
-  
-    case 'vimeo':
-    '<iframe src="https://player.vimeo.com/video/243401046"\
-            width="640" height="360" frameborder="0" \
-            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-      break;
 
-    case 'dailymotion':
-      break;
-
-    default:
-      break;
-  }
-  
   document.getElementById('message-list').innerHTML = "<li>"
   + data.user.username
   + " : " + md(data.content)
@@ -40,16 +24,3 @@ socket.on('new_emotion', function(data) {
   document.getElementById(data.message).style.color= 'red';
 })
 
-// var specifiedElement = document.getElementsByClassName('update');
-
-// document.addEventListener('click', function(event) {
-//   var isClickInside = specifiedElement.includes(event.target);
-//   if (isClickInside) {
-//     console.log('click')
-//     specifiedElement.contentEditable = true;
-//     specifiedElement.focus();
-//   } else {
-//     console.log('outside')
-//     specifiedElement.contentEditable = false;
-//   }
-// });

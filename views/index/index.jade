@@ -1,8 +1,17 @@
 extends ../layout
 
-block content
-  h1= 'Accueil'
 
-  a(href= "/auth/login")= "Login"
-  br
-  a(href= "/auth/signup")= "Signin"
+block content
+  .container
+      .row
+          .col-md-4
+          .col-md-4
+              .card(style="text-align: center")
+                img.className#IdName(src="/static/avatar.gif" alt="Avatar" title="Avatar")
+                br
+                a(href= "/auth/login")= "Connexion"
+                br
+                a(href= "/auth/signup")= "Créer un compte"
+                br
+                p
+                  | © 2001 Microsoft

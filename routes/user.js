@@ -6,7 +6,7 @@ import mongoose from 'mongoose'
 import isAuth from '../tools/isauthentified'
 
 const User = mongoose.model('User')
-const Room = mongoose.model('Room')
+const Channel = mongoose.model('Channel')
 
 const router = express.Router()
 const ObjectId = mongoose.Types.ObjectId
@@ -17,8 +17,8 @@ router.get('/', isAuth, (req, res) => {
   });
 });
 
-router.get('/:id/kick/:room', isAuth, (req, res) => {
-  Room.findOneAndUpdate({ _id: req.params.room }, { $pull: { 'users': new ObjectId(req.params.id) }}, { safe: true, multi: true }).exec(() => 
+router.get('/:id/kick/:channel', isAuth, (req, res) => {
+  Channel.findOneAndUpdate({ _id: req.params.channel }, { $pull: { 'users': new ObjectId(req.params.id) }}, { safe: true, multi: true }).exec(() => 
     res.redirect('back')
   )
 })

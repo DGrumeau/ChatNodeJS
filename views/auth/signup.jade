@@ -3,9 +3,19 @@ extends ../layout
 block content
     .container
         .row
-            form(action="/auth/signup", method="POST")
-                input(type='text', name='username' class='form-control', placeholder='Username',required, autofocus)
-                input(type='password', name='password' class='form-control', placeholder='Password', required)
-                input(type='email', name='email' class='form-control', placeholder='Email', required)
-                button(class='btn btn-lg btn-primary btn-block', type='submit') Sign up
-            a(href='/auth/login') I already have an account
+            .col-md-4
+            .col-md-4
+                .card
+                    form(action="/auth/signup", method="POST")
+                        .form-group
+                            input(type='text', name='username' class='form-control', placeholder='Pseudo',required, autofocus)
+                        .form-group
+                            input(type='password', name='password' class='form-control', placeholder='Mot de passe', required)
+                        .form-group
+                            input(type='email', name='email' class='form-control', placeholder='Adresse mail', required)
+                        .form-group
+                            button(class='btn btn-lg btn-primary btn-block', type='submit') Créer un compte
+                    
+                    a(href='/auth/login') J'ai déjà un compte
+            .col-md-4
+

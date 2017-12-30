@@ -2,12 +2,12 @@
 
 import mongoose from 'mongoose'
 
-const Room = mongoose.model('Room')
+const Channel = mongoose.model('Channel')
 
-function userKicked(room) {
+function userKicked(channel) {
   return function(req, res, next) {
-    Room.findById({room}, (err, room) => {
-      if (room.users.includes(req.session.passport.user._id)) next();
+    Channel.findById({channel}, (err, channel) => {
+      if (channel.users.includes(req.session.passport.user._id)) next();
       else res.redirect('/')
     })
   }
