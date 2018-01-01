@@ -6,18 +6,24 @@
 
 Cas d'usages utilisateur
 
-[x] Un utilisateur doit être capable de se connecter à l'aide de Facebook, Twitter et d'un compte Google. => OK sur Twitter
+[X] Un utilisateur doit être capable de se connecter à l'aide de Facebook, Twitter et d'un compte Google. => OK sur Twitter
+
 [] Si un utilisateur se connecte avec Facebook, il devra choisir un pseudo d'usage.
 
-[x] Un utilisateur doit pouvoir créer/rejoindre/quitter un ou plusieurs canaux.
-[x] Un utilisateur doit pouvoir parler au sein de l'un des canaux et en utilisant du texte normal
+[X] Un utilisateur doit pouvoir créer/rejoindre/quitter un ou plusieurs canaux.
+
+[X] Un utilisateur doit pouvoir parler au sein de l'un des canaux et en utilisant du texte normal
+
 [] ou la syntaxe Markdown mettre du gras, italique etc (Utiliser une bibliothèque à cet effet).
+
 [] Un utilisateur peut être admin ou simple user sur le canal.
+
 [] Un utlisateur peut laisser une "emotion" sur un message d'un utilisateur.
+
 
 Cas d'usages administrateur
 
-[x] Un administrateur peut supprimer, censurer, kicker, bannir et transformer un utilisateur en admin. - Un message censuré ou supprimé, devra être affiché comme tel
+[X] Un administrateur peut supprimer, censurer, kicker, bannir et transformer un utilisateur en admin. - Un message censuré ou supprimé, devra être affiché comme tel
 
 Cas d'usages superadmin
 
@@ -25,11 +31,14 @@ Cas d'usages superadmin
 
 BONUS
 
-[x] Un effort a été fait sur l'UI => FontAwesome + Bootstrap
+[X] Un effort a été fait sur l'UI => FontAwesome + Bootstrap
+
 [] Il est possible de définir un photo de profil pour l'user
-[x] Il est possible d'uploader des fichiers ou d'embed des vidéos YouTube => YouTube OK
-[x] Votre application est responsive.
+
+[X] Il est possible d'uploader des fichiers ou d'embed des vidéos YouTube => YouTube OK
+
+[X] Votre application est responsive.
 
 NOTE :
 
-[x] Votre application doit conserver les sessions après redémarrage et a travers les clusters. Car, oui votre application doit utiliser les clusters !!
+[X] Votre application doit conserver les sessions après redémarrage et a travers les clusters. Car, oui votre application doit utiliser les clusters !!
