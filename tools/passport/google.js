@@ -1,4 +1,4 @@
-// importation des modules, outils nécessaires 
+// importation des modules, outils 
 
 import passportGoogle from 'passport-google'
 import User from '../../models/user'

@@ -9,9 +9,17 @@ block content
               .card(style="text-align: center")
                 img.className#IdName(src="/static/avatar.gif" alt="Avatar" title="Avatar")
                 br
-                a(href= "/auth/login")= "Connexion"
-                br
-                a(href= "/auth/signup")= "Créer un compte"
+
+                .form-group
+                a.btn.btn-block.btn-social.btn-primary(href="/auth/login")
+                  span.fa.fa-sign-in
+                  | Connexion
+                .form-group
+                a.btn.btn-block.btn-social.btn-secondary(href="/auth/signup")
+                  span.fa.fa-plus-square-o
+                  | Créer un compte
                 br
                 p
-                  | © 2001 Microsoft
+                  | © 2017 Diego Grumeau
+
+

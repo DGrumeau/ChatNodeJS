@@ -8,7 +8,6 @@ const Schema = mongoose.Schema
 const MessageSchema = new Schema({
     content: String,
     date: Date,
-    dateLastUpdate: Date,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     emotion: [{
         type: mongoose.Schema.Types.ObjectId,

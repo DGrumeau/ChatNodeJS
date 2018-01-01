@@ -1,4 +1,4 @@
-// importation des modules, outils et modèles nécessaires 
+// importation des modules, outils et modèles 
 
 import passportLocal from 'passport-local'
 import bCrypt from 'bcrypt-nodejs'

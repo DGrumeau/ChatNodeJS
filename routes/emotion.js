@@ -34,7 +34,7 @@ router.get('/send/:message_id', isAuth, (req, res) => {
     $push: { emotion: emotion._id }
   })
   
-  req.app.get('socketio').emit('new_emotion', emotion)
+  req.app.get('socketio').emit('ajouter_emotion', emotion)
   res.redirect('back')
 });
 

@@ -1,4 +1,4 @@
-// importation des modules, outils et modèles nécessaires 
+// importation des modules, outils et modèles 
 
 import express from 'express'
 import mongoose from 'mongoose'
@@ -15,24 +15,21 @@ router.post('/send', isAuth, (req, res) => {
   const message = new Message({
     content: req.body.content,
     date: new Date(),
-    dateLastUpdate: new Date(),
     user: req.session.passport.user._id,
   })
 
   const embedCode = whichPlatform(message.content)
-
   message.content = embedCode.length > 10 ? embedCode : message.content
-
   message.save((err, item) => {
     Channel.update(
       { "name": req.body.channel }, 
       { "$push": { "messages":  message._id } },
       function (err, raw) {
         if (err) console.log(err);
-        console.log('The raw response from Mongo was ', raw);
+        console.log('Reponse de MongoDB ', raw);
       }
     )
-    req.app.get('socketio').emit('new_message', message);
+    req.app.get('socketio').emit('ajouter_message', message);
     res.redirect('back');
   });
 });
@@ -45,10 +42,10 @@ router.post('/:id/update', isAuth, (req, res) => {
   })
 })
 
-router.get('/:id/delete', isAuth, (req, res) => {
+router.get('/:id/supprimer', isAuth, (req, res) => {
     Message.findByIdAndRemove(req.params.id, (err) => {
       if (err) console.log(err)
-      req.app.get('socketio').emit('delete_message', req.body.id);
+      req.app.get('socketio').emit('supprimer_message', req.body.id);
       res.redirect('back')
     })
 })

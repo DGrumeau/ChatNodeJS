@@ -3,22 +3,17 @@ extends ../layout
 block content
 
     .container
-      
-
-
                 table
                   tr
                     td.titre='Liste des channels'
                   each channel in channels
                     tr
                       td
-                        a(href='/channel/' + channel.slug)= channel.name
-                        span= ' ---  ' + channel.numberOfUsers + ' membre(s)   -   '
+                        a(href='/channel/' + channel.slug)= channel.name + " "
                         if channel.creator.username == user.username || ['admin', 'super-admin'].includes(user.role) 
-                          a(href= '/channel/' + channel._id + '/delete')
-                            i(class="fas fa-trash-alt")
+                          a(href= '/channel/' + channel._id + '/supprimer')
+                            i(class="fa fa-trash-o")
                         br
-
                   tr
                     td
                       .panel.panel-default
@@ -28,5 +23,5 @@ block content
                                           .label.col-md-2(for="channel")
                                           .input-group
                                               input#channel(name="name", type="text", placeholder="Saisir nom")
-                                              input.btn.btn-default(type="submit", value="CREER")                                                  
+                                              input.btn.btn-default(type="submit", value="Créer")                                                  
                         

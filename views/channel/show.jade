@@ -1,13 +1,12 @@
 extends ../layout
-
 block content
-
-
   .container
       
                 table
                   tr
-                  td.titre(colspan='3')=channel.name
+                  td.titre(colspan='3')=channel.name + " - "
+                    a(href= 'http://localhost:3000/')
+                      i(class="fa fa-undo")
                   .message-list
                     if channel.messages
                       each message in channel.messages
@@ -18,12 +17,14 @@ block content
                             span.update!= md(message.content)       
                           td.tdoptions
                                 if message.user.username == user.username || ['admin', 'super-admin'].includes(user.role) 
-                                  a(href= '/message/' + message._id + '/delete')= "Effacer"
+                                  a(href= '/message/' + message._id + '/supprimer')
+                                    i(class="fa fa-eraser")
                                   br
                                 if ['admin', 'super-admin'].includes(user.role)
                                   a(href= '/user/' + message.user._id + '/kick/' + channel._id)= "Kicker " + message.user.username
                                   br
-                                a(href= '/emotion/send/' + message._id)= "Réagir"
+                                a(href= '/emotion/send/' + message._id)
+                                  i(class="fa  fa-thumbs-up")
                   tr
                   td.tdsendmessage(colspan='3')
                     .panel.panel-default
@@ -35,5 +36,7 @@ block content
                                           input#message(name="content", type="text", placeholder="Ecrivez votre message...")
                                           input(type="hidden", name="channel", value="#{channel.name}")
                                           input.btn.btn-default(type="submit", value="Envoyer")
+
+
 
 

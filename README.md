@@ -2,24 +2,34 @@
 
 ## _Description_
 
-Ce Chat reprend le principe de Slack. 
+###Objective Créer un chat d'équipe "Slack-like" en temps réel.
 
-Déjà fait :
+Cas d'usages utilisateur
 
-- Possibilité de créer des salons
-- Possibilité d'écrire dans les salons, supprimer les messages
-- Utilisation des clusters
-- Ajouter des vidéos YouTube
-- Créer un compte local
-- Se connecter avec Twitter
-- Kick utilisateurs
-- Front basique 
+[x] Un utilisateur doit être capable de se connecter à l'aide de Facebook, Twitter et d'un compte Google. => OK sur Twitter
+[] Si un utilisateur se connecte avec Facebook, il devra choisir un pseudo d'usage.
 
+[x] Un utilisateur doit pouvoir créer/rejoindre/quitter un ou plusieurs canaux.
+[x] Un utilisateur doit pouvoir parler au sein de l'un des canaux et en utilisant du texte normal
+[] ou la syntaxe Markdown mettre du gras, italique etc (Utiliser une bibliothèque à cet effet).
+[] Un utilisateur peut être admin ou simple user sur le canal.
+[] Un utlisateur peut laisser une "emotion" sur un message d'un utilisateur.
 
-Pas encore fait :
+Cas d'usages administrateur
 
-- Se connecter avec Google, Facebook
-- Markdown
-- Réactions
-- Supprimer salons
-- Front responsive
+[x] Un administrateur peut supprimer, censurer, kicker, bannir et transformer un utilisateur en admin. - Un message censuré ou supprimé, devra être affiché comme tel
+
+Cas d'usages superadmin
+
+[] Un superadmin peut supprimer un canal même s'il n'est pas admin de celui-ci.
+
+BONUS
+
+[x] Un effort a été fait sur l'UI => FontAwesome + Bootstrap
+[] Il est possible de définir un photo de profil pour l'user
+[x] Il est possible d'uploader des fichiers ou d'embed des vidéos YouTube => YouTube OK
+[x] Votre application est responsive.
+
+NOTE :
+
+[x] Votre application doit conserver les sessions après redémarrage et a travers les clusters. Car, oui votre application doit utiliser les clusters !!

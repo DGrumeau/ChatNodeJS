@@ -13,15 +13,18 @@ block content
                             input(type='password', name='password' class='form-control', placeholder='Mot de passe', required)
                         .form-group
                             button(class='btn btn-primary btn-block', type='submit') Connexion
-                    a(href='/auth/signup') Créer un compte
+                    .form-group
+                        a.btn.btn-block.btn-social.btn-secondary(href="/auth/signup")
+                            span.fa.fa-question-circle
+                            |  Pas de compte ?
                     br
                     .form-group
                         a.btn.btn-block.btn-social.btn-twitter(href="/auth/login/twitter")
                             span.fa.fa-twitter
                             |  Se connecter avec Twitter
-                            .form-group
-                        a.btn.btn-block.btn-social.btn-twitter(href="/auth/auth/google")
-                            span.fa.fa-twitter
+                    .form-group
+                        a.btn.btn-block.btn-social.btn-google(href="/auth/auth/google")
+                            span.fa.fa-google
                             |  Se connecter avec Google
                     .form-group
                         a.btn.btn-block.btn-social.btn-facebook(href="/auth/facebook")

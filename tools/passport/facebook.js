@@ -1,4 +1,5 @@
 // importation des modules, outils nécessaires 
+
 import passportFacebook from 'passport-facebook'
 import User from '../../models/user'
 import config from '../../config/auth'

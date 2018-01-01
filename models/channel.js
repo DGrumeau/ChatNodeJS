@@ -10,9 +10,7 @@ const ChannelSchema = new Schema({
     name: String,
     slug: String,
     dateCreation: Date,
-    dateLastUpdate: Date,
-    creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    
+    creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },  
     messages:
     [
       {

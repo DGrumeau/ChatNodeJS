@@ -1,19 +1,9 @@
+/* Paramètres généraux pour le front-end */
+
 body {
   margin: 0;
   padding: 0;
   text-align: center;
-}
-
-#admin {
-  color: red
-}
-
-#super-admin {
-  color: darkgreen
-}
-
-#user {
-  color: darkorchid
 }
 
 .icons{
@@ -41,12 +31,10 @@ body {
 }
 
 table, th, td {
-    border: 1px solid rgba(0,0,0,.125);
-
-   padding: 5px;
-   width: 80%;
+  border: 1px solid rgba(0,0,0,.125);
+  padding: 5px;
+  width: 80%;
 }
-
 
 ul, li{
   list-style:none;
@@ -86,6 +74,24 @@ footer{
   width: 100%;
 }
 
-.tdsendmessage{
-  
+/* Propriété pour voir les icônes FontAwesome */
+
+i.fa {
+  font-family: fontawesome !important;
 }
+
+/* Codes couleur pour les rôles */
+
+#user {
+  color: grey
+}
+
+#admin {
+  color: green
+}
+
+#super-admin {
+  color: darkgreen
+}
+
+

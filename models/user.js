@@ -14,11 +14,10 @@ const UserSchema = new Schema({
     enum: ['user', 'admin', 'super-admin', 'kicked', 'banned'],
     default: 'user'
   },
-
   facebook : {
     id: String,
     token: String,
-    name: String
+    pseudoFb: String //Pseudo pour Facebook
   },
   twitter: {
     id: String,

@@ -1,10 +1,8 @@
-#!/usr/bin/env node
+// Importation des modules, définition constantes
 
-// Importing needed modules
 import cluster from 'cluster'
 import os from 'os'
 
-// Setting needed constants
 const CPUs = os.cpus()
 const numCPUs = CPUs.length
 

@@ -1,4 +1,4 @@
-// importation des modules, outils et modèles nécessaires 
+// importation des modules, outils et modèles 
 
 import express from 'express'
 import mongoose from 'mongoose'
@@ -17,10 +17,12 @@ const User = mongoose.model('User')
 
 const router = express.Router()
 
+// Regex pour nom du channel : 2 à 50 char
+
 router.get('/:slug', isAuth, isBanned, validate(
   {
     params: {
-      slug: Joi.string().regex(/[a-zA-Z0-9]{3,30}/).required(),
+      slug: Joi.string().regex(/[a-zA-Z0-9]{2,50}/).required(),
     }
   }), (req, res) => {
     Channel.findOneAndUpdate({ slug: req.params.slug }, { $addToSet: { users: { _id: req.session.passport.user._id } }}, { new: true }).populate({ path: 'messages', populate: [{ path: 'user' }, { path: 'emotion' }]}).populate({ path: 'users' }).exec(function(err, channel) {
@@ -37,10 +39,8 @@ router.post('/create', isAuth, isBanned, (req, res) => {
   const channel = new Channel({
     name: req.body.name,
     slug: slug(req.body.name),
-    numberOfUsers: 1,
     numberOfMessages: 0,
     dateCreation: new Date(),
-    dateLastUpdate: new Date(),
     creator: req.session.passport.user._id,
     messages: [],
     users: [{ id: req.session.passport.user._id }]
@@ -52,10 +52,10 @@ router.post('/create', isAuth, isBanned, (req, res) => {
   })
 })
 
-router.get('/:id/delete', isAuth, isBanned, (req, res) => {
+router.get('/:id/supprimer', isAuth, isBanned, (req, res) => {
   Message.findByIdAndRemove(req.params.id, (err) => {
     if (err) console.log(err)
-    req.app.get('socketio').emit('delete_message', req.body.id);
+    req.app.get('socketio').emit('supprimer_message', req.body.id);
     res.redirect('back')
   })
 })

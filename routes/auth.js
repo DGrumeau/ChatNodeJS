@@ -1,8 +1,7 @@
-// importation des modules
+// importation des modules, définition constantes. Importation passports
 
 import express from 'express'
 import passport from 'passport'
-
 const router = express.Router()
 
 require('../tools/passport/local_login')(passport)
