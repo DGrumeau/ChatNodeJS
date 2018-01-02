@@ -53,9 +53,9 @@ router.post('/create', isAuth, isBanned, (req, res) => {
 })
 
 router.get('/:id/supprimer', isAuth, isBanned, (req, res) => {
-  Message.findByIdAndRemove(req.params.id, (err) => {
+  Channel.findByIdAndRemove(req.params.id, (err) => {
     if (err) console.log(err)
-    req.app.get('socketio').emit('supprimer_message', req.body.id);
+    req.app.get('socketio').emit('supprimer_channel', req.body.id);
     res.redirect('back')
   })
 })

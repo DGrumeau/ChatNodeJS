@@ -21,6 +21,10 @@ socket.on('supprimer_message', function(data) {
   document.getElementById(data).innerHTML = '';
 })
 
+socket.on('supprimer_channel', function(data) {
+  document.getElementById(data).innerHTML = '';
+})
+
 socket.on('ajouter_emotion', function(data) {
   document.getElementById(data.message).style.color= 'red';
 })

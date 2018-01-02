@@ -27,7 +27,7 @@ Cas d'usages administrateur
 
 Cas d'usages superadmin
 
-[] Un superadmin peut supprimer un canal même s'il n'est pas admin de celui-ci.
+[X] Un superadmin peut supprimer un canal même s'il n'est pas admin de celui-ci.
 
 BONUS
 
